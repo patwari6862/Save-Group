@@ -22,10 +22,6 @@
       "description": "Get this value from https://my.telegram.org or @TeleORG_Bot",
       "value": ""
     },
-    "STRING_SESSION": {
-      "description": "Pyrogram user session string, get it from @StringSessionGen_Bot",
-      "value": ""
-    },
     "FORCE_SUB_CHANNEL": {
       "description": "Your channel username that you want to forcesub",
       "value": "",
@@ -39,15 +35,7 @@
       "description": "telegram bot token, get it from @botfather ",
       "value": ""
     },
-    "BLOCKED_EXTENSIONS": {
-      "description": "blocked files extension that will not get deleted.",
-      "value": "srt txt jpg jpeg png torrent html aio pdf"
-    },
-    "DB_CHANNEL_ID": {
-      "description": "Your private channel id for database. In that channel bot will save files.",
-      "value": ""
-    }
-  },
+    "
   "buildpacks": [
       {
         "url": "heroku/python"
