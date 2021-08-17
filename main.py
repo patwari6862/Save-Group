@@ -24,17 +24,11 @@ Bot = Client(
 async def start_handler(bot: Client, event: Message):
     __data = event.text.split("_")[-1]
     if __data == "/start":
-        await sendMessage(bot, "Go Away Unkil", event.message_id, event.chat.id)
-    else:
-        file_id = int(__data)
-        try:
-            await bot.forward_messages(chat_id=event.chat.id, from_chat_id=Config.DB_CHANNEL_ID, message_ids=file_id)
-        except:
-            await sendMessage(bot, "Unable to Get Message!\n\nReport at @DevsZone !!", event.message_id, event.chat.id)
-
+        await bot.sendMessage("Go Away Unkil", event.message_id, event.chat.id)
+    
 
 @Bot.on_chat_member_updated()
-async def handle_Fsub_Join(bot: Client, event: Message):
+async def handle_Fsub_Join(bot, event: Message):
     """
     Auto Unmute Member after joining channel.
 
