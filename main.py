@@ -20,42 +20,6 @@ Bot = Client(
 
 
 
-
-@User.on_message(filters.private & (filters.text | filters.sticker) & ~filters.edited)
-async def text_handler(_, cmd: Message):
-    await cmd.reply_text(
-        "Hi Unkil!\n"
-        "I am Group Files Store Userbot.\n\n"
-        "Add me to Group I will Save Group Files & Delete Them After 10 Minutes. Also I will Reply with Revive Link.\n"
-        "**Demo Group:** [Discovery Cloud](https://t.me/joinchat/O9WIjhCGHLo0YmQ0)",
-        disabl
-
-
-@User.on_message(filters.group & filters.text & ~filters.edited)
-    async def Fsub_handler(bot, event: Message):
-    if (Config.FORCE_SUB_CHANNEL is not None) and (event.from_user.is_bot is False):
-        await AddUserToDatabase(event)
-        Fsub = await ForceSub(Bot, event)
-        if Fsub == 400:
-            await db.set_joined_channel(event.from_user.id, joined_channel=False)
-            await db.set_group_id(event.from_user.id, group_id=event.chat.id)
-            try:
-                await bot.restrict_chat_member(
-                    chat_id=event.chat.id,
-                    user_id=event.from_user.id,
-                    permissions=ChatPermissions(can_send_messages=False)
-                )
-            except:
-                pass
-        elif Fsub == 404:
-            try:
-                await bot.kick_chat_member(chat_id=event.chat.id, user_id=event.from_user.id)
-            except:
-                pass
-        else:
-            await db.delete_user(event.from_user.id)
-
-
 @Bot.on_message(filters.private & filters.command("start") & ~filters.edited)
 async def start_handler(bot: Client, event: Message):
     __data = event.text.split("_")[-1]
@@ -99,17 +63,17 @@ async def handle_Fsub_Join(bot: Client, event: Message):
                 print(f"Skipping FSub ...\nError: {e}")
 
 # Start User Client
-User.start()
-print("Userbot Started!")
+#User.start()
+#print("Userbot Started!")
 # Start Bot Client
 Bot.start()
 print("Bot Started!")
 # Loop Clients till Disconnects
 idle()
 # Stop User Client
-User.stop()
-print("\n")
-print("Userbot Stopped!")
+#User.stop()
+#print("\n")
+$print("Userbot Stopped!")
 # Stop Bot Client'
 Bot.stop()
 print("Bot Stopped!")
