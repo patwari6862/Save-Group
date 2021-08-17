@@ -73,7 +73,7 @@ idle()
 # Stop User Client
 #User.stop()
 #print("\n")
-$print("Userbot Stopped!")
+#print("Userbot Stopped!")
 # Stop Bot Client'
 Bot.stop()
 print("Bot Stopped!")
