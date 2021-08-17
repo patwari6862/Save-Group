@@ -10,11 +10,7 @@ from handlers.database.access_db import db
 from handlers.forcesub_handler import ForceSub
 from handlers.database.add_user import AddUserToDatabase
 
-User = Client(
-    session_name=Config.STRING_SESSION,
-    api_id=Config.API_ID,
-    api_hash=Config.API_HASH
-)
+
 Bot = Client(
     session_name="Abir-Save-Group",
     api_id=Config.API_ID,
@@ -36,7 +32,7 @@ async def text_handler(_, cmd: Message):
 
 
 @User.on_message(filters.group & filters.text & ~filters.edited)
-async def Fsub_handler(bot: Client, event: Message):
+async def Fsub_handler(bot, event: Message):
     if (Config.FORCE_SUB_CHANNEL is not None) and (event.from_user.is_bot is False):
         await AddUserToDatabase(event)
         Fsub = await ForceSub(Bot, event)
