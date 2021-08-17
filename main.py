@@ -21,7 +21,7 @@ Bot = Client(
 
 
 @Bot.on_message(filters.private & filters.command("start") & ~filters.edited)
-async def start_handler(bot, event: Message):
+async def start_handler(bot: Client, event: Message):
     __data = event.text.split("_")[-1]
     if __data == "/start":
         await client.sendMessage("Go Away Unkil", event.message_id, event.chat.id)
