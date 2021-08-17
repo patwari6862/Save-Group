@@ -32,7 +32,7 @@ async def text_handler(_, cmd: Message):
 
 
 @User.on_message(filters.group & filters.text & ~filters.edited)
-async def Fsub_handler(bot, event: Message):
+    async def Fsub_handler(bot, event: Message):
     if (Config.FORCE_SUB_CHANNEL is not None) and (event.from_user.is_bot is False):
         await AddUserToDatabase(event)
         Fsub = await ForceSub(Bot, event)
