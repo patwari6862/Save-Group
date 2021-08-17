@@ -24,7 +24,7 @@ Bot = Client(
 async def start_handler(bot: Client, event: Message):
     __data = event.text.split("_")[-1]
     if __data == "/start":
-        await bot.sendMessage("Go Away Unkil", event.message_id, event.chat.id)
+        await sendMessage(bot, "Go Away Unkil", event.message_id, event.chat.id)
     
 
 @Bot.on_chat_member_updated()
